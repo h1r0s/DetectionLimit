@@ -1,0 +1,62 @@
+<h1><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  CommonHTML: { matchFontHeight: false }
+});
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<h1>サーベイメータの特性と取り扱い</h1>
+<h2>表面汚染密度の計算式</h2>
+\[
+{\rm
+	表面汚染密度(Bq/cm^2) = 
+		\frac
+			{(測定値 - バックグラウンド) / 60}
+			{機器効率 \times 線源効率 \times 検出器の有効窓面積}
+}
+\]
+ここで
+<ul>
+<li>機器効率: TGS-146Bでは0.53</li>
+<li>
+	線源効率:<br>
+		\(E_{\beta_{\rm max}}\geqq 0.4MeV\)の場合は0.5<br>
+		\(0.15MeV < E_{\beta_{\rm max}} < 0.4MeV\)の場合は0.25
+</li>
+<li>有効窓面積: TGS-146Bでは\(19.6cm^2\)</li>
+</ul>
+
+<h2>検出限界計数率の計算式</h2>
+\[
+N_d = \frac{K}{2} \times 
+							\left\{
+								\frac{K}{nT_s} +
+								\sqrt
+								{
+									\left(
+										\frac{K}{nT_s}
+									\right)^2 +
+									4 \times N_b \times
+														\left(
+															\frac{1}{nT_s} + \frac{1}{nT_b}
+														\right)
+								}
+							\right\}
+\]
+ここで
+<ul>
+<li>\(N_d\): 検出限界計数率[cps]</li>
+<li>\(K\): バックグラウンドの標準偏差に乗ずる係数(通常は3を用いる)</li>
+<li>\(N_b\): バックグラウンド計数率[cps]</li>
+<li>\(T_s\): 試料を測定したときの測定時間[sec]</li>
+<li>\(T_b\): バックグラウンドを測定したときの測定時間[sec]</li>
+<li>\(n\): 測定した回数</li>
+</ul>
+※サーベイメータのように時定数で動作する装置の場合は、\(T_s\)のかわりに\(2\tau_s\)、\(T_b\)のかわりに\(2\tau_b\)が入る。
+
+</body>
+</html>
